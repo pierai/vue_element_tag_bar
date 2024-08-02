@@ -1,3 +1,13 @@
+<!--
+ * @Author: pierai it_quinna@163.com
+ * @Date: 2024-08-01 15:17:55
+ * @LastEditors: pierai it_quinna@163.com
+ * @LastEditTime: 2024-08-02 10:58:48
+ * @FilePath: \vue_element_tag_bar\src\views\login.vue
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+-->
 <template>
   <div class="flex items-center justify-center h-screen bg-gray-100">
     <div class="flex mx-auto bg-white rounded py-10">
@@ -39,12 +49,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-import wxIcon from "@/assets/svg/wx_icon.vue";
 import qqIcon from "@/assets/svg/qq_icon.vue";
-import { reactive, ref, onMounted } from "vue";
-import { login } from "@/http/login";
+import wxIcon from "@/assets/svg/wx_icon.vue";
 import { LoginVo } from "@/http/login/types/login.vo";
 import { Storage } from "@/utils/storage";
+import { onMounted, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter()
 const formLogin = reactive<LoginVo>({ username: "", password: "" });
@@ -54,8 +63,8 @@ const loginRules = reactive({
 });
 //登录
 const handleLogin = async () => {
-  const { data } = await login(formLogin);
-  Storage.set<string>("token", data);
+  // const { data } = await login(formLogin);
+  Storage.set<string>("token", 'sfsdf');
   router.push("/")
   if (isRemember.value) {
     rememberPassword(formLogin)
